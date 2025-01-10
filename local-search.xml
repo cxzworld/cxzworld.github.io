@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>初学JMeter压力测试</title>
+    <link href="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/"/>
+    <url>/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<p>最近在项目开发的过程中，涉及到 HTTP 接口性能测试，测试具体的接口处理能力。网上测试工具很多很多，找了一个最经典 JMeter 来进行压力测试，记录一下初学如何安装和使用 JMeter 测试工具。</p><h1 id="部署环境说明"><a href="#部署环境说明" class="headerlink" title="部署环境说明"></a>部署环境说明</h1><p>由于想要压力测试，1 秒内达到 1000 个请求的能力，也就是说 JMeter 要使用多线程来虚拟用户访问接口，通常 JMeter 测试的时候一个 CPU 的核并发 100-200 线程。为了避免由硬件性能造成无法达到测试目的，在一个 64 核心的服务器上进行。</p><p>下面是一些操作系统环境的基本的信息，以供参考。</p><ul><li>操作系统：Ubuntu 24.04.1 LTS</li><li>JAVA：openjdk 17.0.13 2024-10-15</li><li>JMeter：5.6.3</li></ul><p>可以参考上述的一些基本环境，进行捣鼓。</p><h1 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h1><p>JMeter 是开源软件 Apache 基金会下的一个性能测试工具，用于测试部署在服务器端的应用程序的性能。</p><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>打开 JMeter 的官方网站 <a href="https://jmeter.apache.org/">https://jmeter.apache.org/</a> ，国内可以直接打开。找到左侧的 Download releases 下载，点击进入下载页面。</p><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/003JMeter%E5%AE%98%E7%BD%91.png" class="" title="JMeter 官网"><p>进入下载页面过后，找到 Binaries 下载，两种不同的压缩方式的文件均可，这里以 .zip 结尾的文件为例。</p><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/004JMeter%E4%B8%8B%E8%BD%BD.jpg" class="" title="JMeter Download Releases"><p>在服务器上执行 wget 命令就可以下载到当前的目录，如果是 windows 的话，直接点击就可以下载相应的文件。然后解压缩，使用对应的命令行运行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip<br>   unzip apache-jmeter-5.6.3.zip<br></code></pre></td></tr></table></figure><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>JMeter 是一款免安装的软件，下载安装包后直接解压即可使用。在 bin 目录下，Windows 用户运行 jmeter.bat 文件即可启动 JMeter，Unix &#x2F; MacOS 用户则需要运行 jmeter.sh。不过这是在有 GUI 界面的情况下，由于服务器是没有 GUI 支持的，考虑远程运行的方式，然后通过互联网连接。</p><p>所以有三个步骤需要完成：</p><ol><li>在本地计算机上安装 JMeter，GUI 的方式运行；</li><li>在远程服务器上安装 JMeter，Server的方式运行；</li><li>配置本地计算机的 JMeter 连接远程的 JMeter。</li></ol><h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><p>直接下载并且解压过后，在本地的 Windows 环境下，进入 bin 文件夹，双击 jmeter.bat 文件。</p><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/005JMeterGUI.png" class="" title="JMeter GUI"><p>这个界面，官方建议用来创建测试计划，然后再运行命令行来加载和测试。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]<br></code></pre></td></tr></table></figure><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/006JMeterLogs.png" class="" title="GUI JMeter 日志"><h3 id="服务器安装"><a href="#服务器安装" class="headerlink" title="服务器安装"></a>服务器安装</h3><p>服务器下载过后，解压，并且使用服务器模式运行。在此之前，需要修改部分 jmeter-server 中的内容，否则会报错本地回环地址：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">RMI_HOST_DEF=-Djava.rmi.server.hostname=172.29.0.2 <span class="hljs-comment"># 修改为自己服务器的 IP 地址</span><br></code></pre></td></tr></table></figure><p>接下来，在 jmeter.properties 中，删除 ssl 安全相关的依赖，否则会报错无法监听端口：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">server.rmi.ssl.disable=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>然后再运行 jmeter-server 就可以跑起来了，确保服务器上的防火墙端口打开，可以访问得到。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./jmeter-server<br></code></pre></td></tr></table></figure><h3 id="本地连接服务器-JMeter"><a href="#本地连接服务器-JMeter" class="headerlink" title="本地连接服务器 JMeter"></a>本地连接服务器 JMeter</h3><p>到这儿还是不行，我也服了，做个测试这么麻烦，怪不得大家都在做自己的自动化测试工具。</p><p>本地安装好的 JMeter 也要相应的配置，设置 jmeter.properties 关闭 ssl，添加远程服务器的地址：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">remote_hosts=172.29.0.2 <span class="hljs-comment"># 如果多个的话，用逗号隔开</span><br>   <span class="hljs-comment"># ....</span><br>server.rmi.ssl.disable=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>都设置好了过后，重新运行 jmeter.bat。</p><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/007JMeterRemote.png" class="" title="本地连接远程 JMeter"><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>查阅官方文档过后，大家称这种测试方式为分布式压力测试，这里只用到了 1 个节点。因为在做压力测试的时候，往往需要十分巨大的请求量来测试系统的承载服务的能力，所以提供了这种配置方式来进行压力测试。</p><img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/008JMeterDistributedTest.png" class="" title="JMeter 分布式测试"><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>接下来测试某个接口的能力，模拟在 1s 内 1000 个用户同时访问某个 HTTP 接口。参考官方文档，设置好测试计划测试某个 HTTP 接口。</p><p>以上就是初步学习使用 JMeter进行分布式测试的方法，赶快试一试吧！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>JAVA</category>
+      
+      <category>测试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JAVA</tag>
+      
+      <tag>测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>初学搭建个人微信公众号</title>
     <link href="/2025/01/10/%E5%88%9D%E5%AD%A6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     <url>/2025/01/10/%E5%88%9D%E5%AD%A6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/</url>

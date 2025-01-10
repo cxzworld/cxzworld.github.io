@@ -19,24 +19,25 @@
   <meta name="author" content="初学者的世界">
   <meta name="keywords" content="">
   
-    <meta name="description" content="初学搭建微信公众号，步骤其实还蛮简单，下面我们从注册到设置的一系列步骤，顺利搭建自己的个人微信公众号。 步骤 1：注册微信公众号1. 访问微信公众平台官网   打开浏览器，进入微信公众平台 https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F; 的官方网站。 2. 注册账号点击右上角的“注册”按钮，进入注册页面。  选择账号类型：公众号主要有两种类型：  订阅号：适合个人、媒体、组织进行信息发布。">
+    <meta name="description" content="最近在项目开发的过程中，涉及到 HTTP 接口性能测试，测试具体的接口处理能力。网上测试工具很多很多，找了一个最经典 JMeter 来进行压力测试，记录一下初学如何安装和使用 JMeter 测试工具。 部署环境说明由于想要压力测试，1 秒内达到 1000 个请求的能力，也就是说 JMeter 要使用多线程来虚拟用户访问接口，通常 JMeter 测试的时候一个 CPU 的核并发 100-200 线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初学搭建个人微信公众号">
-<meta property="og:url" content="https://www.cxzworld.cn/2025/01/10/%E5%88%9D%E5%AD%A6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/index.html">
+<meta property="og:title" content="初学JMeter压力测试">
+<meta property="og:url" content="https://www.cxzworld.cn/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="初学者的世界">
-<meta property="og:description" content="初学搭建微信公众号，步骤其实还蛮简单，下面我们从注册到设置的一系列步骤，顺利搭建自己的个人微信公众号。 步骤 1：注册微信公众号1. 访问微信公众平台官网   打开浏览器，进入微信公众平台 https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F; 的官方网站。 2. 注册账号点击右上角的“注册”按钮，进入注册页面。  选择账号类型：公众号主要有两种类型：  订阅号：适合个人、媒体、组织进行信息发布。">
+<meta property="og:description" content="最近在项目开发的过程中，涉及到 HTTP 接口性能测试，测试具体的接口处理能力。网上测试工具很多很多，找了一个最经典 JMeter 来进行压力测试，记录一下初学如何安装和使用 JMeter 测试工具。 部署环境说明由于想要压力测试，1 秒内达到 1000 个请求的能力，也就是说 JMeter 要使用多线程来虚拟用户访问接口，通常 JMeter 测试的时候一个 CPU 的核并发 100-200 线程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.cxzworld.cn/imgs/001%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.webp">
-<meta property="article:published_time" content="2025-01-10T07:35:47.000Z">
-<meta property="article:modified_time" content="2025-01-10T08:16:59.421Z">
+<meta property="og:image" content="https://www.cxzworld.cn/imgs/003JMeter%E5%AE%98%E7%BD%91.png">
+<meta property="article:published_time" content="2025-01-10T08:09:21.000Z">
+<meta property="article:modified_time" content="2025-01-10T08:16:56.274Z">
 <meta property="article:author" content="初学者的世界">
-<meta property="article:tag" content="生活">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.cxzworld.cn/imgs/001%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.webp">
+<meta name="twitter:image" content="https://www.cxzworld.cn/imgs/003JMeter%E5%AE%98%E7%BD%91.png">
   
   
   
-  <title>初学搭建个人微信公众号 - 初学者的世界</title>
+  <title>初学JMeter压力测试 - 初学者的世界</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -242,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="初学搭建个人微信公众号"></span>
+            <span id="subtitle" data-typed-text="初学JMeter压力测试"></span>
           
         </div>
 
@@ -253,7 +254,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-10 15:35" pubdate>
+        <time datetime="2025-01-10 16:09" pubdate>
           2025年1月10日 下午
         </time>
       </span>
@@ -265,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          861 字
+          1.1k 字
         
       </span>
     
@@ -276,7 +277,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -322,67 +323,69 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">初学搭建个人微信公众号</h1>
+            <h1 id="seo-header">初学JMeter压力测试</h1>
             
             
               <div class="markdown-body">
                 
-                <p>初学搭建微信公众号，步骤其实还蛮简单，下面我们从注册到设置的一系列步骤，顺利搭建自己的个人微信公众号。</p>
-<h2 id="步骤-1：注册微信公众号"><a href="#步骤-1：注册微信公众号" class="headerlink" title="步骤 1：注册微信公众号"></a>步骤 1：注册微信公众号</h2><h3 id="1-访问微信公众平台官网"><a href="#1-访问微信公众平台官网" class="headerlink" title="1. 访问微信公众平台官网"></a>1. 访问微信公众平台官网</h3><p>   打开浏览器，进入微信公众平台 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a> 的官方网站。</p>
-<h3 id="2-注册账号"><a href="#2-注册账号" class="headerlink" title="2. 注册账号"></a>2. 注册账号</h3><p>点击右上角的“注册”按钮，进入注册页面。</p>
+                <p>最近在项目开发的过程中，涉及到 HTTP 接口性能测试，测试具体的接口处理能力。网上测试工具很多很多，找了一个最经典 JMeter 来进行压力测试，记录一下初学如何安装和使用 JMeter 测试工具。</p>
+<h1 id="部署环境说明"><a href="#部署环境说明" class="headerlink" title="部署环境说明"></a>部署环境说明</h1><p>由于想要压力测试，1 秒内达到 1000 个请求的能力，也就是说 JMeter 要使用多线程来虚拟用户访问接口，通常 JMeter 测试的时候一个 CPU 的核并发 100-200 线程。为了避免由硬件性能造成无法达到测试目的，在一个 64 核心的服务器上进行。</p>
+<p>下面是一些操作系统环境的基本的信息，以供参考。</p>
 <ul>
-<li><p>选择账号类型：公众号主要有两种类型：</p>
-<ul>
-<li><p>订阅号：适合个人、媒体、组织进行信息发布。</p>
-</li>
-<li><p>服务号：适合企业进行与用户互动、营销服务等。</p>
-</li>
+<li>操作系统：Ubuntu 24.04.1 LTS</li>
+<li>JAVA：openjdk 17.0.13 2024-10-15</li>
+<li>JMeter：5.6.3</li>
 </ul>
-</li>
-<li><p>填写邮箱地址、设置密码等信息，完成注册。</p>
-</li>
-</ul>
-<h3 id="3-选择公众号类型为订阅号"><a href="#3-选择公众号类型为订阅号" class="headerlink" title="3. 选择公众号类型为订阅号"></a>3. 选择公众号类型为订阅号</h3><ul>
-<li><p>如果你是个人或媒体，选择“订阅号”。</p>
-</li>
-<li><p>如果你是公司或组织，选择“服务号”。</p>
-</li>
-</ul>
-<h3 id="4-填写公众号基本信息"><a href="#4-填写公众号基本信息" class="headerlink" title="4. 填写公众号基本信息"></a>4. 填写公众号基本信息</h3><p>输入公众号名称（一般不能与其他公众号重复）。</p>
-<p>选择公众号的行业类别。</p>
-<p>输入公众号的介绍（可以稍后修改）。</p>
-<h3 id="5-邮箱验证"><a href="#5-邮箱验证" class="headerlink" title="5. 邮箱验证"></a>5. 邮箱验证</h3><p>输入邮箱验证码，确保邮箱的有效性。</p>
-<h3 id="6-上传相关资质材料（如果是企业-公司号）"><a href="#6-上传相关资质材料（如果是企业-公司号）" class="headerlink" title="6. 上传相关资质材料（如果是企业&#x2F;公司号）"></a>6. 上传相关资质材料（如果是企业&#x2F;公司号）</h3><ul>
-<li><p>服务号需要提交企业认证（企业需提供营业执照和组织代码等相关资质材料）。</p>
-</li>
-<li><p>根据不同公众号类型，完成相关认证流程。一般订阅号不需要提交企业认证，个人可以选择“未认证”。</p>
-</li>
-</ul>
-<h3 id="7-完成注册并登录"><a href="#7-完成注册并登录" class="headerlink" title="7. 完成注册并登录"></a>7. 完成注册并登录</h3><p>注册成功后，登录到微信公众平台。</p>
-<h2 id="步骤-2：公众号设置"><a href="#步骤-2：公众号设置" class="headerlink" title="步骤 2：公众号设置"></a>步骤 2：公众号设置</h2><h3 id="1-设置公众号头像"><a href="#1-设置公众号头像" class="headerlink" title="1. 设置公众号头像"></a>1. 设置公众号头像</h3><p>可以使用一些免费的制作 <a target="_blank" rel="noopener" href="https://www.designevo.com/cn/apps/logo/">https://www.designevo.com/cn/apps/logo/</a>  的网站进行制作</p>
-<img src="/2025/01/10/%E5%88%9D%E5%AD%A6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/002logo%E5%88%B6%E4%BD%9C.jpg" srcset="/img/loading.gif" lazyload class="" title="designevo">
+<p>可以参考上述的一些基本环境，进行捣鼓。</p>
+<h1 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h1><p>JMeter 是开源软件 Apache 基金会下的一个性能测试工具，用于测试部署在服务器端的应用程序的性能。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>打开 JMeter 的官方网站 <a target="_blank" rel="noopener" href="https://jmeter.apache.org/">https://jmeter.apache.org/</a> ，国内可以直接打开。找到左侧的 Download releases 下载，点击进入下载页面。</p>
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/003JMeter%E5%AE%98%E7%BD%91.png" srcset="/img/loading.gif" lazyload class="" title="JMeter 官网">
 
 
-<ul>
-<li><p>登录微信公众号后台，点击左侧菜单的“设置” &gt; “公众号设置”。</p>
-</li>
-<li><p>在“公众号头像”部分上传适合的头像图片，建议尺寸为 200x200 像素。</p>
-</li>
-</ul>
-<h3 id="2-置公众号简介"><a href="#2-置公众号简介" class="headerlink" title="2.置公众号简介"></a>2.置公众号简介</h3><p>在“公众号设置”页面中，填写公众号的简介，介绍可以包含你的公众号用途、服务等。</p>
-<h3 id="3-设置功能菜单"><a href="#3-设置功能菜单" class="headerlink" title="3. 设置功能菜单"></a>3. 设置功能菜单</h3><p>点击“功能” &gt; “自定义菜单”来设置公众号菜单，用户通过点击公众号底部的菜单，可以快速访问你的服务或内容。</p>
-<h3 id="4-选择服务号的认证"><a href="#4-选择服务号的认证" class="headerlink" title="4. 选择服务号的认证"></a>4. 选择服务号的认证</h3><p>如果是服务号，还可以选择是否进行微信认证。认证后会解锁一些高级功能，比如自定义菜单、广告投放、接口调用等。认证需要缴纳一定费用。</p>
-<h3 id="5-配置开发者模式（如果需要）"><a href="#5-配置开发者模式（如果需要）" class="headerlink" title="5. 配置开发者模式（如果需要）"></a>5. 配置开发者模式（如果需要）</h3><p>如果你有开发需求，可以进入“开发” &gt; “基本配置”中设置开发者ID等信息，进行API接口调用。</p>
-<h2 id="步骤-3：发布内容"><a href="#步骤-3：发布内容" class="headerlink" title="步骤 3：发布内容"></a>步骤 3：发布内容</h2><h3 id="1-编辑并发布文章"><a href="#1-编辑并发布文章" class="headerlink" title="1. 编辑并发布文章"></a>1. 编辑并发布文章</h3><ul>
-<li><p>登录到微信公众平台后台，点击左侧菜单中的“内容管理” &gt; “文章管理”。</p>
-</li>
-<li><p>在这里，你可以选择“新建图文消息”来编辑文章，添加标题、封面图、正文等内容。</p>
-</li>
-<li><p>编辑完成后，点击“保存并发布”来推送文章给你的用户。</p>
-</li>
-</ul>
-<h3 id="2-定时推送"><a href="#2-定时推送" class="headerlink" title="2. 定时推送"></a>2. 定时推送</h3><p>在编辑文章时，你可以选择“定时发送”选项来设置文章的发布时间。</p>
-<p>通过以上步骤，你就可以成功搭建自己的个人微信公众号啦，快去试一试吧！</p>
+<p>进入下载页面过后，找到 Binaries 下载，两种不同的压缩方式的文件均可，这里以 .zip 结尾的文件为例。</p>
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/004JMeter%E4%B8%8B%E8%BD%BD.jpg" srcset="/img/loading.gif" lazyload class="" title="JMeter Download Releases">
+
+<p>在服务器上执行 wget 命令就可以下载到当前的目录，如果是 windows 的话，直接点击就可以下载相应的文件。然后解压缩，使用对应的命令行运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip<br>   unzip apache-jmeter-5.6.3.zip<br></code></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>JMeter 是一款免安装的软件，下载安装包后直接解压即可使用。在 bin 目录下，Windows 用户运行 jmeter.bat 文件即可启动 JMeter，Unix &#x2F; MacOS 用户则需要运行 jmeter.sh。不过这是在有 GUI 界面的情况下，由于服务器是没有 GUI 支持的，考虑远程运行的方式，然后通过互联网连接。</p>
+<p>所以有三个步骤需要完成：</p>
+<ol>
+<li>在本地计算机上安装 JMeter，GUI 的方式运行；</li>
+<li>在远程服务器上安装 JMeter，Server的方式运行；</li>
+<li>配置本地计算机的 JMeter 连接远程的 JMeter。</li>
+</ol>
+<h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><p>直接下载并且解压过后，在本地的 Windows 环境下，进入 bin 文件夹，双击 jmeter.bat 文件。</p>
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/005JMeterGUI.png" srcset="/img/loading.gif" lazyload class="" title="JMeter GUI">
+
+<p>这个界面，官方建议用来创建测试计划，然后再运行命令行来加载和测试。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]<br></code></pre></td></tr></table></figure>
+
+
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/006JMeterLogs.png" srcset="/img/loading.gif" lazyload class="" title="GUI JMeter 日志">
+
+<h3 id="服务器安装"><a href="#服务器安装" class="headerlink" title="服务器安装"></a>服务器安装</h3><p>服务器下载过后，解压，并且使用服务器模式运行。在此之前，需要修改部分 jmeter-server 中的内容，否则会报错本地回环地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">RMI_HOST_DEF=-Djava.rmi.server.hostname=172.29.0.2 <span class="hljs-comment"># 修改为自己服务器的 IP 地址</span><br></code></pre></td></tr></table></figure>
+
+<p>接下来，在 jmeter.properties 中，删除 ssl 安全相关的依赖，否则会报错无法监听端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">server.rmi.ssl.disable=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>然后再运行 jmeter-server 就可以跑起来了，确保服务器上的防火墙端口打开，可以访问得到。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./jmeter-server<br></code></pre></td></tr></table></figure>
+
+<h3 id="本地连接服务器-JMeter"><a href="#本地连接服务器-JMeter" class="headerlink" title="本地连接服务器 JMeter"></a>本地连接服务器 JMeter</h3><p>到这儿还是不行，我也服了，做个测试这么麻烦，怪不得大家都在做自己的自动化测试工具。</p>
+<p>本地安装好的 JMeter 也要相应的配置，设置 jmeter.properties 关闭 ssl，添加远程服务器的地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">remote_hosts=172.29.0.2 <span class="hljs-comment"># 如果多个的话，用逗号隔开</span><br>   <span class="hljs-comment"># ....</span><br>server.rmi.ssl.disable=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>都设置好了过后，重新运行 jmeter.bat。</p>
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/007JMeterRemote.png" srcset="/img/loading.gif" lazyload class="" title="本地连接远程 JMeter">
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>查阅官方文档过后，大家称这种测试方式为分布式压力测试，这里只用到了 1 个节点。因为在做压力测试的时候，往往需要十分巨大的请求量来测试系统的承载服务的能力，所以提供了这种配置方式来进行压力测试。</p>
+<img src="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/008JMeterDistributedTest.png" srcset="/img/loading.gif" lazyload class="" title="JMeter 分布式测试">
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>接下来测试某个接口的能力，模拟在 1s 内 1000 个用户同时访问某个 HTTP 接口。参考官方文档，设置好测试计划测试某个 HTTP 接口。</p>
+<p>以上就是初步学习使用 JMeter进行分布式测试的方法，赶快试一试吧！</p>
 
                 
               </div>
@@ -401,8 +404,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E6%B4%BB/" class="category-chain-item">生活</a>
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/JAVA/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  
+  
+
   
 
       </span>
@@ -416,7 +426,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%94%9F%E6%B4%BB/" class="print-no-link">#生活</a>
+        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
+      
+        <a href="/tags/%E6%B5%8B%E8%AF%95/" class="print-no-link">#测试</a>
       
     </div>
   
@@ -428,8 +440,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>初学搭建个人微信公众号</div>
-      <div>https://www.cxzworld.cn/2025/01/10/初学搭建个人微信公众号/</div>
+      <div>初学JMeter压力测试</div>
+      <div>https://www.cxzworld.cn/2025/01/10/初学JMeter压力测试/</div>
     </div>
     <div class="license-meta">
       
@@ -473,15 +485,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/10/%E5%88%9D%E5%AD%A6JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" title="初学JMeter压力测试">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">初学JMeter压力测试</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/01/10/%E5%88%9D%E5%AD%A6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" title="初学搭建个人微信公众号">
+                        <span class="hidden-mobile">初学搭建个人微信公众号</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
